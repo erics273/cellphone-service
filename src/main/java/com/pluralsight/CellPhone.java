@@ -21,6 +21,30 @@ public class CellPhone {
 
     }
 
+    public CellPhone(String carrier, String model, String owner, String phoneNumber, int serialNumber) {
+        this.carrier = carrier;
+        this.model = model;
+        this.owner = owner;
+        this.phoneNumber = phoneNumber;
+        this.serialNumber = serialNumber;
+    }
+
+    //custom methods
+    /*
+    1)Add a dial(String phoneNumber) method to the CellPhone class that will
+    accept a phone number parameter
+    2) displays the message "owner's phone is calling (e.g Dana Wyatt's phone is calling 855-555-2222)
+
+     */
+    public void dial(String phoneNumber) {
+        System.out.println(getOwner() + "'s phone is calling " + phoneNumber);
+    }
+
+    //create another dial that takes a CellPhone instead of a String
+    public void dial(CellPhone somePhone) {
+        System.out.println(getOwner() + "'s phone is calling (" + somePhone.getOwner() + ") " + somePhone.getPhoneNumber());
+    }
+
     //getters and setters
     public String getCarrier() {
         return carrier;

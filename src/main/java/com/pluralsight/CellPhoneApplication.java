@@ -11,25 +11,28 @@ public class CellPhoneApplication {
 
         Scanner input = new Scanner(System.in);
 
-        newPhoneWhoDis.setSerialNumber(
-                Integer.parseInt(askQuestion(input, "What is the serial number?"))
-        );
+        //ask the question
+        System.out.print("What is the serial number?");
+        //store the answer
+        int serialNumber = input.nextInt();
+        //set the serial number on the phone
+        newPhoneWhoDis.setSerialNumber(serialNumber);
 
-
-        newPhoneWhoDis.setModel(
-                askQuestion(input, "What model is the phone?")
-        );
-
+        //ask the question
+        System.out.print("What model is the phone?");
+        String model = input.nextLine();
+        newPhoneWhoDis.setModel(model);
+        
         newPhoneWhoDis.setCarrier(
                 askQuestion(input, "Who is the carrier?")
         );
 
         newPhoneWhoDis.setOwner(
-                askQuestion(input, "What is the phone number?")
+                askQuestion(input, "Who is the owner of the phone?")
         );
 
         newPhoneWhoDis.setPhoneNumber(
-                askQuestion(input, "Who is the owner of the phone?")
+                askQuestion(input, "What is the phone number?")
         );
 
         //eric cheating by generating the toString method on the class
@@ -38,6 +41,25 @@ public class CellPhoneApplication {
         //use our display method to display the information about the  phone
         display(newPhoneWhoDis);
         display(newPhoneWhoDis);
+
+        //test my cellphone dial method
+        newPhoneWhoDis.dial("817-937-3870");
+
+        //create the new phone
+        CellPhone newCellphonePart2 = new CellPhone();
+
+        //set the serial on newCellphonePart2
+        newCellphonePart2.setSerialNumber(6767);
+        //set the model of this cellphone
+        newCellphonePart2.setModel("Nokia");
+        newCellphonePart2.setCarrier("verizon");
+        newCellphonePart2.setOwner("Mark");
+        newCellphonePart2.setPhoneNumber("676-767-6767");
+
+        //have newPhoneWhoDis call newCellphonePart2
+        newPhoneWhoDis.dial(newCellphonePart2.getPhoneNumber());
+
+        newCellphonePart2.dial(newPhoneWhoDis.getPhoneNumber());
 
 
     }
